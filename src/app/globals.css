@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+
+  /* Larger, calmer typography for bilingual (Kannada + English) question text. */
+  .question-text {
+    @apply text-lg leading-relaxed font-medium text-slate-900 sm:text-xl;
+  }
+
+  .kannada {
+    font-family: 'Noto Sans Kannada', 'Nirmala UI', 'Tunga', 'Segoe UI', sans-serif;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-white;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+  }
+
+  .card-hover {
+    @apply transition duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-md;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium ring-1;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition duration-150 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-600 text-white shadow-sm hover:bg-brand-700 active:scale-[0.99];
+  }
+
+  .btn-ghost {
+    @apply btn border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50;
+  }
+
+  .btn-danger {
+    @apply btn border border-rose-200 bg-rose-50 text-rose-700 hover:bg-rose-100;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-lg bg-slate-200;
+  }
+}
+
+/* Slim scrollbars for the palette / sidebar areas. */
+.scroll-slim::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scroll-slim::-webkit-scrollbar-thumb {
+  background-color: rgb(203 213 225);
+  border-radius: 9999px;
+}
+
+.scroll-slim::-webkit-scrollbar-track {
+  background-color: transparent;
+}
